@@ -13,4 +13,10 @@ apiRouter.use('/plants', (req, res, next) => {
     });
 });
 
+apiRouter.use('/dictionaries', (req, res, next) => {
+    return plantsController.getDictionaries().then((results) => {
+        res.json(results);
+    });
+});
+
 module.exports = apiRouter;
