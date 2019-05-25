@@ -1,0 +1,22 @@
+{
+  "apps": [
+    {
+      "name": "api_service",
+      "script"    : "src/server.js",
+      "instances" : 2,
+      "exec_mode" : "cluster"
+    }
+  ],
+  "deploy": {
+    "production": {
+      "user": "serviceuser",
+      "host": [
+        "134.209.248.105"
+      ],
+      "ref": "origin/master",
+      "repo": "git@github.com:deniskaber/plants-app-server.git",
+      "path": "/home/serviceuser/server/plants-app-server",
+      "post-deploy": "npm install"
+    }
+  }
+}

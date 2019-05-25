@@ -21,4 +21,8 @@ app.use('/api', apiRouter);
 
 app.use('/static', express.static('public'));
 
-app.listen(port, () => console.log(`Server is listening on port ${port}!`));
+const getAppPort = () => {
+    return 3000 + (Number(process.env.NODE_APP_INSTANCE) || 0);
+};
+
+app.listen(getAppPort(), () => console.log(`Server is listening on port ${port}!`));
